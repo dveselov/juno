@@ -15,7 +15,7 @@ type UCallerProvider struct {
 	SecretKey  string
 	BaseAPIUrl string
 
-	BaseAuthorizationProvider
+	BaseAuthenticationProvider
 }
 
 func (p *UCallerProvider) GetDBType() string {
