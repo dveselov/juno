@@ -10,22 +10,22 @@ type AuthenticationByCodeProvider interface {
 	GetDBType() string
 	Begin(phoneNumber string, code string) error
 	Send(phoneNumber string, code string) error
-	Verify(phoneNumber string, code string) (bool, error)
+	Verify(phoneNumber string, code string) error
 }
 
 type BaseAuthenticationProvider struct {
 	db *sql.DB
 }
 
-func (p *BaseAuthenticationProvider) GetDBType() string {
+func (p BaseAuthenticationProvider) GetDBType() string {
 	return ""
 }
 
-func (p *BaseAuthenticationProvider) Send(phoneNumber string, code string) error {
+func (p BaseAuthenticationProvider) Send(phoneNumber string, code string) error {
 	return errors.New("Not implemented")
 }
 
-func (p *BaseAuthenticationProvider) Begin(phoneNumber string, code string) error {
+func (p BaseAuthenticationProvider) Begin(phoneNumber string, code string) error {
 	tx, err := p.db.Begin()
 	if err != nil {
 		return err
@@ -53,7 +53,7 @@ func (p *BaseAuthenticationProvider) Begin(phoneNumber string, code string) erro
 	return nil
 }
 
-func (p *BaseAuthenticationProvider) Verify(phoneNumber string, code string) error {
+func (p BaseAuthenticationProvider) Verify(phoneNumber string, code string) error {
 	var authID string
 	err := p.db.QueryRow(`
 		SELECT id FROM authentication_provider_code

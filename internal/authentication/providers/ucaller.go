@@ -5,9 +5,6 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"strconv"
-
-	_ "github.com/lib/pq"
 )
 
 type UCallerProvider struct {
@@ -18,16 +15,11 @@ type UCallerProvider struct {
 	BaseAuthenticationProvider
 }
 
-func (p *UCallerProvider) GetDBType() string {
+func (p UCallerProvider) GetDBType() string {
 	return "ucaller"
 }
 
-func (p *UCallerProvider) Send(phoneNumber string, code string) error {
-	_, err := strconv.Atoi(code)
-	if len(code) != 4 || err != nil {
-		return errors.New("Code must contain 4 digits")
-	}
-
+func (p UCallerProvider) Send(phoneNumber string, code string) error {
 	request, err := http.NewRequest("GET", p.BaseAPIUrl+"/initCall", nil)
 	if err != nil {
 		return err

@@ -1,4 +1,4 @@
-BEGIN
+BEGIN;
 
 CREATE TABLE IF NOT EXISTS authentication_user (
     id SERIAL PRIMARY KEY,
