@@ -47,6 +47,7 @@ func Begin(provider AuthenticationByCodeProvider, phoneNumber string, code strin
 
 func Verify(provider AuthenticationByCodeProvider, phoneNumber string, code string) error {
 	var authID string
+	// @todo #1:30m Use VerificationCodeTTL from env config
 	err := provider.GetDB().QueryRow(`
 		SELECT id FROM authentication_provider_code
 		WHERE provider = $1
