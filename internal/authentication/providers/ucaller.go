@@ -5,14 +5,19 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+
+	"github.com/jmoiron/sqlx"
 )
 
 type UCallerProvider struct {
+	Database   *sqlx.DB
 	ServiceID  string
 	SecretKey  string
 	BaseAPIUrl string
+}
 
-	BaseAuthenticationProvider
+func (p UCallerProvider) GetDB() *sqlx.DB {
+	return p.Database
 }
 
 func (p UCallerProvider) GetDBType() string {
