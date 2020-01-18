@@ -149,7 +149,7 @@ func Verify(c echo.Context) error {
 	claims := token.Claims.(jwt.MapClaims)
 	claims["user_id"] = string(userID)
 	claims["phone_number"] = request.PhoneNumber
-	// @todo Use token expiration time from env variables
+	// @todo #1 Use token expiration time from env variables
 	claims["exp"] = time.Now().Add(time.Hour * 72).Unix()
 
 	t, err := token.SignedString([]byte(context.Config.SigningKey))
