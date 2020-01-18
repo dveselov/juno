@@ -49,6 +49,7 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
+	// @todo #1:15m Wrap routes to /api/v1 group
 	e.POST("/begin", routes.Begin)
 	e.POST("/verify", routes.Verify)
 

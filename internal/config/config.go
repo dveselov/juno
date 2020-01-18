@@ -34,6 +34,7 @@ type AppConfig struct {
 }
 
 func GetAppConfig(db *sqlx.DB) AppConfig {
+	// @todo #1:30m Implement config variables check on startup
 	provider := providers.UCallerProvider{
 		ServiceID:  os.Getenv("UCALLER_SERVICE_ID"),
 		SecretKey:  os.Getenv("UCALLER_SECRET_KEY"),
