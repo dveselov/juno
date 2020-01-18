@@ -5,7 +5,7 @@ go 1.13
 require (
 	github.com/cespare/reflex v0.2.0 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
-	github.com/golang-migrate/migrate v3.5.4+incompatible
+	github.com/golang-migrate/migrate v3.5.4+incompatible // indirect
 	github.com/golang-migrate/migrate/v4 v4.8.0
 	github.com/jackc/pgx v3.6.1+incompatible // indirect
 	github.com/jmoiron/sqlx v1.2.0
