@@ -1,7 +1,8 @@
+<img style="width: 256px;" src="https://i.imgur.com/bGhuPoM.jpg">
+
 # Juno
 Phone number based authorization server with pluggable backends
 
-<img align="right" src="https://i.imgur.com/bGhuPoM.jpg">
 
 # Usage
 

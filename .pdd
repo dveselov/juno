@@ -1,3 +1,4 @@
 --source=.
 --verbose
 --exclude vendor/**/*
+--exclude README.md
