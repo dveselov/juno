@@ -49,4 +49,4 @@ jobs:
 
     - name: Deploy
       run: |
-        gcloud --quiet beta run deploy ${{ secrets.GCP_SERVICE_NAME }} --image eu.gcr.io/$GCP_PROJECT/$IMAGE:$GITHUB_SHA --allow-unauthenticated --platform managed --region europe-west1
+        gcloud --quiet --project ${{ secrets.GCP_PROJECT_ID }} beta run deploy ${{ secrets.GCP_SERVICE_NAME }} --image eu.gcr.io/$GCP_PROJECT/$IMAGE:$GITHUB_SHA --allow-unauthenticated --platform managed --region europe-west1
