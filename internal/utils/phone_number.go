@@ -5,6 +5,8 @@ import (
 	"strconv"
 )
 
+// @todo #1:30m Write tests for utils module
+
 func IsDigit(text string) bool {
 	if _, err := strconv.Atoi(text); err != nil {
 		return false
