@@ -7,7 +7,7 @@ on:
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-  GCP_PROJECT: bar-quest-265516
+  GCP_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
   GCP_EMAIL: ${{ secrets.GCP_EMAIL }}
   GITHUB_SHA: ${{ github.sha }}
   GCP_ZONE: europe-north1-a
