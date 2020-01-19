@@ -1,5 +1,5 @@
 FROM golang:alpine as builder
-RUN RUN apk --no-cache add ca-certificates && mkdir /build 
+RUN apk --no-cache add ca-certificates && mkdir /build 
 ADD . /build/
 WORKDIR /build 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o api ./cmd/api
